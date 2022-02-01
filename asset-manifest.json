@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/dfk-lp-visualizer/static/css/main.832a9462.css",
+    "main.js": "/dfk-lp-visualizer/static/js/main.b9f4bf8a.js",
+    "static/js/787.497b7dea.chunk.js": "/dfk-lp-visualizer/static/js/787.497b7dea.chunk.js",
+    "static/media/roboto-mono-all-400-normal.woff": "/dfk-lp-visualizer/static/media/roboto-mono-all-400-normal.8c12dec86f8b17eac652.woff",
+    "static/media/cinzel-decorative-all-400-normal.woff": "/dfk-lp-visualizer/static/media/cinzel-decorative-all-400-normal.09edd7740ac146e82351.woff",
+    "static/media/cinzel-all-400-normal.woff": "/dfk-lp-visualizer/static/media/cinzel-all-400-normal.56d9d8d40cc89bef4398.woff",
+    "static/media/jewel-icon.png": "/dfk-lp-visualizer/static/media/jewel-icon.191166a07637dee8c3e2.png",
+    "static/media/cinzel-decorative-latin-400-normal.woff2": "/dfk-lp-visualizer/static/media/cinzel-decorative-latin-400-normal.6d679d918695980d64b8.woff2",
+    "static/media/cinzel-latin-400-normal.woff2": "/dfk-lp-visualizer/static/media/cinzel-latin-400-normal.4a3c7516c48875f95c59.woff2",
+    "static/media/roboto-mono-cyrillic-ext-400-normal.woff2": "/dfk-lp-visualizer/static/media/roboto-mono-cyrillic-ext-400-normal.b60acdafdfd55591eddf.woff2",
+    "static/media/roboto-mono-latin-400-normal.woff2": "/dfk-lp-visualizer/static/media/roboto-mono-latin-400-normal.535bc89d4af715503b01.woff2",
+    "static/media/roboto-mono-latin-ext-400-normal.woff2": "/dfk-lp-visualizer/static/media/roboto-mono-latin-ext-400-normal.52237f44c81dd66b90e3.woff2",
+    "static/media/cinzel-latin-ext-400-normal.woff2": "/dfk-lp-visualizer/static/media/cinzel-latin-ext-400-normal.6220c99f566449c1a035.woff2",
+    "static/media/roboto-mono-cyrillic-400-normal.woff2": "/dfk-lp-visualizer/static/media/roboto-mono-cyrillic-400-normal.3b6a3201563987f5c30c.woff2",
+    "static/media/roboto-mono-greek-400-normal.woff2": "/dfk-lp-visualizer/static/media/roboto-mono-greek-400-normal.6c5721aefd48c14edd31.woff2",
+    "static/media/roboto-mono-vietnamese-400-normal.woff2": "/dfk-lp-visualizer/static/media/roboto-mono-vietnamese-400-normal.baa5de8fd025f9a570c0.woff2",
+    "index.html": "/dfk-lp-visualizer/index.html",
+    "main.832a9462.css.map": "/dfk-lp-visualizer/static/css/main.832a9462.css.map",
+    "main.b9f4bf8a.js.map": "/dfk-lp-visualizer/static/js/main.b9f4bf8a.js.map",
+    "787.497b7dea.chunk.js.map": "/dfk-lp-visualizer/static/js/787.497b7dea.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.832a9462.css",
+    "static/js/main.b9f4bf8a.js"
+  ]
+}
