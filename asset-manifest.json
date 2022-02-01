@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.493aef8e.css",
-    "main.js": "/static/js/main.d419100d.js",
+    "main.css": "/static/css/main.e1be7798.css",
+    "main.js": "/static/js/main.0a067553.js",
     "static/js/787.497b7dea.chunk.js": "/static/js/787.497b7dea.chunk.js",
     "static/media/roboto-mono-all-400-normal.woff": "/static/media/roboto-mono-all-400-normal.8c12dec86f8b17eac652.woff",
     "static/media/cinzel-decorative-all-400-normal.woff": "/static/media/cinzel-decorative-all-400-normal.09edd7740ac146e82351.woff",
@@ -17,12 +17,12 @@
     "static/media/roboto-mono-greek-400-normal.woff2": "/static/media/roboto-mono-greek-400-normal.6c5721aefd48c14edd31.woff2",
     "static/media/roboto-mono-vietnamese-400-normal.woff2": "/static/media/roboto-mono-vietnamese-400-normal.baa5de8fd025f9a570c0.woff2",
     "index.html": "/index.html",
-    "main.493aef8e.css.map": "/static/css/main.493aef8e.css.map",
-    "main.d419100d.js.map": "/static/js/main.d419100d.js.map",
+    "main.e1be7798.css.map": "/static/css/main.e1be7798.css.map",
+    "main.0a067553.js.map": "/static/js/main.0a067553.js.map",
     "787.497b7dea.chunk.js.map": "/static/js/787.497b7dea.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.493aef8e.css",
-    "static/js/main.d419100d.js"
+    "static/css/main.e1be7798.css",
+    "static/js/main.0a067553.js"
   ]
 }
