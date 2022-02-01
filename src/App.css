@@ -24,12 +24,24 @@
   flex-direction: row;
   width: 30%;
   justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 800px) {
+  .dropdowns {
+    display: flex;
+    flex-direction: row;
+    width: 70%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
 }
 
 .dropdown_wrapper {
   display: flex;
   flex-direction: column;
   width: 250px;
+  padding-top: 10px;
 }
 
 .dropdown {
@@ -51,6 +63,18 @@
   font-weight: 700;
   font-size: 12px;
   font-family: "Cinzel";
+}
+
+@media (max-width: 800px) {
+  .chart {
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    height: 60vh;
+    font-weight: 700;
+    font-size: 12px;
+    font-family: "Cinzel";
+  }
 }
 
 .jewel {

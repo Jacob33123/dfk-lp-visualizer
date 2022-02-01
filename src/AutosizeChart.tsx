@@ -37,6 +37,42 @@ const shouldRenderLabel = (bubbleValue: number, maxChartValue: number | undefine
   }  
 }
 
+const getFontSize = (bubbleValue: number, maxChartValue: number | undefined) => {
+  if (maxChartValue) {
+    const percent = (bubbleValue / maxChartValue) * 100
+    if ( percent > 30) {
+      return 18
+    }
+    if ( percent >= 3 && percent <= 17) {
+      return 10
+    }
+  } else return 14
+}
+
+const getTopDy = (bubbleValue: number, maxChartValue: number | undefined) => {
+  if (maxChartValue) {
+    const percent = (bubbleValue / maxChartValue) * 100
+    if ( percent >= 3 && percent <= 30) {
+      return -14
+    }
+  }
+  
+  return -20
+}
+
+const getBottomDy = (bubbleValue: number, maxChartValue: number | undefined) => {
+  if (maxChartValue) {
+    const percent = (bubbleValue / maxChartValue) * 100
+    if ( percent >= 3 && percent <= 30) {
+      return 14
+    }
+  }
+  
+  return 25
+}
+
+
+
 export const AutosizeChart: React.VFC<AutosizeChartProps> = ({ chartData, sortBy }) => {
   const maxChartValue = _.max(_.map(chartData, pool => pool.data))
 
@@ -49,14 +85,18 @@ export const AutosizeChart: React.VFC<AutosizeChartProps> = ({ chartData, sortBy
     const symbol1Match = pairStr.match(/\-(.*)/)
     const symbol0 = symbol0Match ? symbol0Match[0] : ''
     const symbol1 = symbol1Match? symbol1Match[1] : ''
+
+    const fontSize = getFontSize(pairValue, maxChartValue)
+    const topDy = getTopDy(pairValue, maxChartValue)
+    const bottomDy = getBottomDy(pairValue, maxChartValue)
   
     return shouldRenderLabel(pairValue, maxChartValue) ? (
       <g>
-        <text dy={-20} textAnchor="middle" fill="#004529" fontSize={14}>
+        <text dy={topDy} textAnchor="middle" fill="#004529" fontSize={fontSize}>
           {symbol0}
         </text>
         <image y={-10} x={-4} height={10} width={10} href={require('./jewel-icon.png')} />
-        <text dy={25} textAnchor="middle" fill="#004529" fontSize={14}>
+        <text dy={bottomDy} textAnchor="middle" fill="#004529" fontSize={fontSize}>
           {symbol1}
         </text>
       </g>
