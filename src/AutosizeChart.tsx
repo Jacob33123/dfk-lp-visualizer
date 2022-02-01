@@ -1,0 +1,115 @@
+import _ from 'lodash'
+import React from 'react'
+import { Bubble, BubbleChart, BubbleLabel, BubbleSeries, ChartTooltip, Gradient, GradientStop } from 'reaviz'
+import './App.css'
+import { SORT_BY_OPTIONS } from './constants'
+
+type AutosizeChartProps = {
+  chartData: {
+    key: string;
+    data: number;
+  }[];
+  sortBy: string;
+}
+
+const getFormattedValue = (value: number, sortBy: string) => {
+  if (sortBy === 'reserveUSD' || sortBy === 'volumeUSD') {
+    const formattedValue = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(_.round(value, 2))
+    return `${formattedValue}`
+  }
+  else {
+    const formattedValue = new Intl.NumberFormat().format(value)
+    return formattedValue
+  }
+}  
+
+const getLabel = (sortBy: string) => {
+  const selectedOption = _.find(SORT_BY_OPTIONS, option => option.value === sortBy)
+  return `${selectedOption?.label}:`
+}
+
+
+
+const shouldRenderLabel = (bubbleValue: number, maxChartValue: number | undefined) => {
+  if (maxChartValue) {
+    const percent = (bubbleValue / maxChartValue) * 100
+    return percent > 3
+  }  
+}
+
+export const AutosizeChart: React.VFC<AutosizeChartProps> = ({ chartData, sortBy }) => {
+  const maxChartValue = _.max(_.map(chartData, pool => pool.data))
+
+  const formatBubbleLabel = (data: any) => {
+    const pairStr = data.data.key
+    const pairValue = data.data.data
+    
+  
+    const symbol0Match = pairStr.match(/[^-]*/)
+    const symbol1Match = pairStr.match(/\-(.*)/)
+    const symbol0 = symbol0Match ? symbol0Match[0] : ''
+    const symbol1 = symbol1Match? symbol1Match[1] : ''
+  
+    return shouldRenderLabel(pairValue, maxChartValue) ? (
+      <g>
+        <text dy={-20} textAnchor="middle" fill="#004529" fontSize={14}>
+          {symbol0}
+        </text>
+        <image y={-10} x={-4} height={10} width={10} href={require('./jewel-icon.png')} />
+        <text dy={25} textAnchor="middle" fill="#004529" fontSize={14}>
+          {symbol1}
+        </text>
+      </g>
+    ) : (
+      <g>
+        <image y={-6} x={-4} height={10} width={10} href={require('./jewel-icon.png')} />
+      </g>
+    )
+  }
+  
+  return (
+    <div className='chart'>
+      <BubbleChart 
+        data={chartData}
+        series={
+          <BubbleSeries 
+            colorScheme="YlGn"
+            animated={false}
+            bubble={
+              <Bubble
+                tooltip={
+                  <ChartTooltip
+                    content={(d: any) => (
+                      <div className='tooltip'>
+                        <div className="tooltip_pair">{d.x}</div>
+                        <div className="tooltip_label">{getLabel(sortBy)}</div>
+                        <div className="tooltip_data_item">{getFormattedValue(d.y, sortBy)}</div>
+                      </div>
+                    )}
+                  />
+                }
+                gradient={
+                  <Gradient
+                      stops={[
+                        <GradientStop
+                          offset="5%"
+                          stopOpacity={0.25}
+                          key="start"
+                        />,
+                        <GradientStop offset="90%" stopOpacity={0.7} key="stop" />
+                      ]}
+                    />
+                }
+              />
+            }
+            label={
+              <BubbleLabel 
+                format={formatBubbleLabel}
+              />
+            }
+          />
+        }
+      />
+    </div>
+  )
+}
