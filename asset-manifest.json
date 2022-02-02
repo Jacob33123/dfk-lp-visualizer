@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.de69d2dd.css",
-    "main.js": "/static/js/main.44c6401b.js",
+    "main.js": "/static/js/main.6314c975.js",
     "static/js/787.497b7dea.chunk.js": "/static/js/787.497b7dea.chunk.js",
     "static/media/roboto-mono-all-400-normal.woff": "/static/media/roboto-mono-all-400-normal.8c12dec86f8b17eac652.woff",
     "static/media/cinzel-decorative-all-400-normal.woff": "/static/media/cinzel-decorative-all-400-normal.09edd7740ac146e82351.woff",
@@ -18,11 +18,11 @@
     "static/media/roboto-mono-vietnamese-400-normal.woff2": "/static/media/roboto-mono-vietnamese-400-normal.baa5de8fd025f9a570c0.woff2",
     "index.html": "/index.html",
     "main.de69d2dd.css.map": "/static/css/main.de69d2dd.css.map",
-    "main.44c6401b.js.map": "/static/js/main.44c6401b.js.map",
+    "main.6314c975.js.map": "/static/js/main.6314c975.js.map",
     "787.497b7dea.chunk.js.map": "/static/js/787.497b7dea.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.de69d2dd.css",
-    "static/js/main.44c6401b.js"
+    "static/js/main.6314c975.js"
   ]
 }
