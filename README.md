@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# DFK Liquidity Pool Visualizer
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Live version of the site hosted here: http://dfk-top-lp.info/
 
 ## Available Scripts
 
