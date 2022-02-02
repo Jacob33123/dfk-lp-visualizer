@@ -1,5 +1,5 @@
 import _ from 'lodash'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Bubble, BubbleChart, BubbleLabel, BubbleSeries, ChartTooltip, Gradient, GradientStop } from 'reaviz'
 import './App.css'
 import { SORT_BY_OPTIONS } from './constants'
@@ -30,41 +30,42 @@ const getLabel = (sortBy: string) => {
 
 
 
-const shouldRenderLabel = (bubbleValue: number, maxChartValue: number | undefined) => {
+const shouldRenderLabel = (bubbleValue: number, maxChartValue: number | undefined, isMobile: boolean) => {
   if (maxChartValue) {
     const percent = (bubbleValue / maxChartValue) * 100
-    return percent > 3
+    return isMobile ? percent > 9 : percent > 3
   }  
 }
 
-const getFontSize = (bubbleValue: number, maxChartValue: number | undefined) => {
+const getFontSize = (bubbleValue: number, maxChartValue: number | undefined, isMobile: boolean) => {
   if (maxChartValue) {
     const percent = (bubbleValue / maxChartValue) * 100
     if ( percent > 30) {
-      return 18
+      return isMobile ? 18 : 20
     }
-    if ( percent >= 3 && percent <= 17) {
-      return 10
-    }
-  } else return 14
+    if ( percent >= 3 && percent <= 10) {
+      return isMobile ? 8 : 12
+    } 
+    else return isMobile ? 8 : 16
+  }
 }
 
-const getTopDy = (bubbleValue: number, maxChartValue: number | undefined) => {
+const getTopDy = (bubbleValue: number, maxChartValue: number | undefined, isMobile: boolean) => {
   if (maxChartValue) {
     const percent = (bubbleValue / maxChartValue) * 100
     if ( percent >= 3 && percent <= 30) {
-      return -14
+      return isMobile ? -13 : -15
     }
   }
   
   return -20
 }
 
-const getBottomDy = (bubbleValue: number, maxChartValue: number | undefined) => {
+const getBottomDy = (bubbleValue: number, maxChartValue: number | undefined, isMobile: boolean) => {
   if (maxChartValue) {
     const percent = (bubbleValue / maxChartValue) * 100
     if ( percent >= 3 && percent <= 30) {
-      return 14
+      return isMobile ? 12 : 18 
     }
   }
   
@@ -74,6 +75,20 @@ const getBottomDy = (bubbleValue: number, maxChartValue: number | undefined) => 
 
 
 export const AutosizeChart: React.VFC<AutosizeChartProps> = ({ chartData, sortBy }) => {
+  const [width, setWidth] = useState<number>(window.innerWidth);
+
+  const handleWindowSizeChange = () => {
+    setWidth(window.innerWidth);
+  }
+
+  useEffect(() => {
+    window.addEventListener('resize', handleWindowSizeChange);
+    return () => {
+        window.removeEventListener('resize', handleWindowSizeChange);
+    }
+  }, []);
+
+  const isMobile = width <= 768;
   const maxChartValue = _.max(_.map(chartData, pool => pool.data))
 
   const formatBubbleLabel = (data: any) => {
@@ -86,11 +101,11 @@ export const AutosizeChart: React.VFC<AutosizeChartProps> = ({ chartData, sortBy
     const symbol0 = symbol0Match ? symbol0Match[0] : ''
     const symbol1 = symbol1Match? symbol1Match[1] : ''
 
-    const fontSize = getFontSize(pairValue, maxChartValue)
-    const topDy = getTopDy(pairValue, maxChartValue)
-    const bottomDy = getBottomDy(pairValue, maxChartValue)
+    const fontSize = getFontSize(pairValue, maxChartValue, isMobile)
+    const topDy = getTopDy(pairValue, maxChartValue, isMobile)
+    const bottomDy = getBottomDy(pairValue, maxChartValue, isMobile)
   
-    return shouldRenderLabel(pairValue, maxChartValue) ? (
+    return shouldRenderLabel(pairValue, maxChartValue, isMobile) ? (
       <g>
         <text dy={topDy} textAnchor="middle" fill="#004529" fontSize={fontSize}>
           {symbol0}
