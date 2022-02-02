@@ -1,6 +1,6 @@
 {
   "name": "dfk-lp-visualizer",
-  "homepage": "http://dfk-lp-visualizer.xyz",
+  "homepage": "http://dfk-top-lp.info",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -30,7 +30,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
+    "deploy": "echo 'dfk-top-lp.info' > ./build/CNAME && gh-pages -d build",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

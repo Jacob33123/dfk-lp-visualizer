@@ -71,7 +71,7 @@ export const App: React.VFC = () => {
           <Select 
             options={SORT_BY_OPTIONS} 
             onChange={handleChangeSortBy} 
-            defaultValue={SORT_BY_OPTIONS[2]} 
+            defaultValue={SORT_BY_OPTIONS[0]} 
             placeholder="Sort By"
             className="dropdown"
           />
